@@ -10,7 +10,7 @@ export default function Home() {
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <CustomNavbar />
-        <h1>Início</h1>
+        <h1>Demo</h1>
     </div>
     )
 }
