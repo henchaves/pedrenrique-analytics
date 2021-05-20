@@ -1,4 +1,6 @@
 flask
 flask-restful
-tensorflow
+flask-cors
+pillow
 numpy
+requests

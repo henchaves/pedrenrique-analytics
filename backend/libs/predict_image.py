@@ -1,6 +1,7 @@
 import os
 import numpy as np
-import tensorflow.keras.preprocessing.image as tf_image
+from PIL import Image
+# import tensorflow.keras.preprocessing.image as tf_image
 import requests
 import json
 
@@ -10,16 +11,17 @@ classes = {
     2: "pneumonia"
 }
 
-TENSORFLOW_SERVING_URL = "http://localhost:8501/v1/models/mobilenet:predict"
+TENSORFLOW_SERVING_URL = "http://localhost:8501/v1/models/classifier:predict"
 
 def convert_image_to_array(image_path):
-    image = tf_image.load_img(image_path, target_size=(128, 128))
-    image_array = np.array([tf_image.img_to_array(image)/255.0])
+    # image = tf_image.load_img(image_path, target_size=(128, 128))
+    image = Image.open(image_path).convert("RGB").resize((150, 150))
+    image_array = np.array([np.asarray(image)])/255.0
     return image_array
 
 def request_model(image_array):
     data = json.dumps({
-        "signature": "serving_default",
+        # "signature": "serving_default",
         "instances": image_array.tolist()
     })
 
@@ -30,6 +32,5 @@ def request_model(image_array):
     )
 
     predictions = json.loads(json_reponse.text)["predictions"]
-    class_predicted_value = round(predictions[0][0])
-    class_predicted_name = classes.get(class_predicted_value)
+    class_predicted_name = classes[np.argmax(np.array(predictions), axis=1)[0]]
     return class_predicted_name
