@@ -45,13 +45,13 @@ const ImageUpload = () => {
           />
           </Button>
           <Button color="success" onClick={handleSubmit}>
-            Predict
+            Realizar diagnóstico
           </Button>
         </div>
-        {loading && <p style={{textAlign: "center"}}>Loading...</p>}
+        {loading && <p style={{textAlign: "center"}}>Carregando...</p>}
         {predictedClass && (
           <p style={{ textAlign: "center" }}>
-            Predicted:{" "}
+            Diagnóstico provável:{" "}
             <span style={styles.predicted}>{predictedClass.toUpperCase()}</span>
           </p>
         )}

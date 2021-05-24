@@ -17,6 +17,7 @@ def convert_image_to_array(image_path):
     # image = tf_image.load_img(image_path, target_size=(128, 128))
     image = Image.open(image_path).convert("RGB").resize((150, 150))
     image_array = np.array([np.asarray(image)])/255.0
+    os.remove(image_path)
     return image_array
 
 def request_model(image_array):
