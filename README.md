@@ -2,7 +2,7 @@
 
 # Introdução
 
-A ideia por trás do nosso trabalho final de Programação Avançada, foi a de criar uma empresa queprestasse serviços para hospitais fazendo o uso principalmente das técnicas de Inteligência Artificial. Os serviços a serem prestados foram divididos em duas principais categorias: assistência médica e infraestrutura. A primeira, trata de soluções com foco no paciente, como os casos de diagnóstico, prognóstico e tratamento de doenças. Já a segunda, é voltada para a organização hospitalar e os aparelhos, focando no gerenciamento, monitoramento e predição de falhas. 
+A ideia por trás do nosso trabalho final de Programação Avançada, foi a de criar uma empresa que prestasse serviços para hospitais fazendo o uso principalmente das técnicas de Inteligência Artificial. Os serviços a serem prestados foram divididos em duas principais categorias: assistência médica e infraestrutura. A primeira, trata de soluções com foco no paciente, como os casos de diagnóstico, prognóstico e tratamento de doenças. Já a segunda, é voltada para a organização hospitalar e os aparelhos, focando no gerenciamento, monitoramento e predição de falhas. 
 
 # Aplicação
 
