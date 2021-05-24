@@ -14,6 +14,8 @@ const styles = {
 
     container: {
         backgroundColor: "#FF9100",
+        height: "200px",
+        width: "323px"
     },
 
     header: {
