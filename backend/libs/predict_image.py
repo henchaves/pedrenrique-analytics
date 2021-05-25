@@ -11,7 +11,7 @@ classes = {
     2: "pneumonia"
 }
 
-TENSORFLOW_SERVING_URL = "http://localhost:8501/v1/models/classifier:predict"
+TENSORFLOW_SERVING_URL = "http://tensorflow:8501/v1/models/classifier:predict"
 
 def convert_image_to_array(image_path):
     # image = tf_image.load_img(image_path, target_size=(128, 128))

@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+
+    tensorflow:
+        build: ./tensorflow/
+        environment:
+            - MODEL_NAME=classifier
+        volumes:
+            - ./tensorflow/models/classifier/:/models/classifier/
+        tty: true
+
+    backend:
+        build: ./backend/
+        ports:
+            - "5000:5000"
+        environment: 
+            - FLASK_ENV=development
+        depends_on:
+            - "tensorflow"
+
+    frontend:
+        build: ./frontend/
+        ports:
+            - "3000:3000"
+        depends_on:
+            - "backend"
