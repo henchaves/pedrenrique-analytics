@@ -20,3 +20,6 @@ Para o nosso produto mínimo viável (MVP), dividimos nossa aplicação em três
 
 [3] https://venturebeat.com/2021/04/16/facebook-claims-ai-can-predict-drug-combinations-to-treat-complex-diseases/
 
+[4] https://nihcc.app.box.com/v/ChestXray-NIHCC
+
+[5] https://www.kaggle.com/tawsifurrahman/covid19-radiography-database
