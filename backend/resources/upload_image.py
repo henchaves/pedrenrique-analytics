@@ -27,7 +27,8 @@ class UploadImage(Resource):
             if len(predictions) == 0:
                 predictions = ["Nada encontrado"]
             print(predictions)
-            return {"predictions": ", ".join(predictions)}, 200
+            # return {"predictions": ", ".join(predictions)}, 200
+            return {"predictions": predictions}, 200
             # return make_response(render_template("index.html", message=f"Predicted class: {predicted_class}"), 200, cls.headers)
         # return make_response(render_template("index.html", message="Error: Uploaded file is not an image"), 400, cls.headers)
         return {"message": "Error"}, 400

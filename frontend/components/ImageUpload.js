@@ -50,10 +50,10 @@ const ImageUpload = () => {
         </div>
         {loading && <p style={{textAlign: "center"}}>Carregando...</p>}
         {predictedClass && (
-          <p style={{ textAlign: "center" }}>
-            Diagnóstico provável:{" "}
-            <span style={styles.predicted}>{predictedClass}</span>
-          </p>
+          <div style={{ textAlign: "center" }}>
+            <p><strong>Diagnóstico provável:</strong></p>
+            {predictedClass.map((n,i) => (<p><strong style={styles.predicted} key={i}>{n}</strong></p>))}
+          </div>
         )}
       </div>
     </div>
@@ -70,7 +70,7 @@ const styles = {
     backgroundColor: "rgba(88, 88, 120, 0.3)",
     borderRadius: 5,
     width: 480,
-    height: 280,
+    height: 480,
     padding: 20,
     boxShadow:
       "box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)",

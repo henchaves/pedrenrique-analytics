@@ -60,7 +60,10 @@ def request_model(x):
         headers={"Content-Type": "application/json"}
     )
 
-    predictions = np.array(json.loads(json_response.text)['predictions'][0]).round()
-    predictions = classes[predictions.astype(bool)].tolist()
-    return predictions
+    predictions = np.array(json.loads(json_response.text)['predictions'][0])
+    index = predictions >= 0.3
+    classes_pred = classes[index].tolist()
+    percentage_pred = (predictions[index] * 100).round(2).tolist()
+    # predictions = classes[predictions.astype(bool)].tolist()
+    return [f"{i[0]} - {i[1]}%" for i in sorted(list(zip(classes_pred, percentage_pred)), key = lambda x: x[1], reverse=True)]
 
