@@ -5,7 +5,7 @@ import werkzeug
 from datetime import datetime
 import os
 
-from libs.predict_image import convert_image_to_array, request_model
+from libs.predict_image import load_image, request_model
 
 
 class UploadImage(Resource):
@@ -19,13 +19,15 @@ class UploadImage(Resource):
         image = files["file"]
         if "image" in image.content_type:
             time_str = datetime.now().strftime("%Y%m%d%H%M%S")
-            image_name = f"{time_str}-{image.filename}"
-            image_path = os.path.join("uploads", image_name)
+            image_filename = f"{time_str}-{image.filename}"
+            image_path = os.path.join("uploads", image_filename)
             image.save(image_path)
-            image_array = convert_image_to_array(image_path)
-            predicted_class = request_model(image_array)
-            print(predicted_class)
-            return {"predicted_class": predicted_class}, 200
+            X = load_image(image_filename, "uploads")
+            predictions = request_model(X)
+            if len(predictions) == 0:
+                predictions = ["Nada encontrado"]
+            print(predictions)
+            return {"predictions": ", ".join(predictions)}, 200
             # return make_response(render_template("index.html", message=f"Predicted class: {predicted_class}"), 200, cls.headers)
         # return make_response(render_template("index.html", message="Error: Uploaded file is not an image"), 400, cls.headers)
         return {"message": "Error"}, 400

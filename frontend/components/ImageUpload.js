@@ -28,7 +28,7 @@ const ImageUpload = () => {
     const responseJson = await response.json();
 
     setLoading(false);
-    setPredictedClass(responseJson["predicted_class"]);
+    setPredictedClass(responseJson["predictions"]);
   }
 
   return (
@@ -52,7 +52,7 @@ const ImageUpload = () => {
         {predictedClass && (
           <p style={{ textAlign: "center" }}>
             Diagnóstico provável:{" "}
-            <span style={styles.predicted}>{predictedClass.toUpperCase()}</span>
+            <span style={styles.predicted}>{predictedClass}</span>
           </p>
         )}
       </div>
