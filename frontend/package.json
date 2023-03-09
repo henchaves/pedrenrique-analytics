@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "next": "10.2.3",
+    "next": "12.1.0",
     "rbx": "^2.2.0",
     "react": "^16.8.6",
     "react-card-carousel": "^1.1.3",
